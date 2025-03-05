@@ -49,7 +49,7 @@ function Signup() {
       formData.append("email", email);
       formData.append("password", password);
       const res = await axios.post(
-        "https://expense-tracker-kwhq.onrender.com/auth/register",
+        "http://localhost:3000/api/auth/register",
         formData
       );
 

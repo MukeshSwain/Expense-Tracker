@@ -24,7 +24,7 @@ function Home() {
     async function fetchDashboardData() {
       try {
         const res = await axios.get(
-          "https://expense-tracker-kwhq.onrender.com/dashboard/get-dashboard-data",
+          "http://localhost:3000/api/dashboard/get-dashboard-data",
           {
             withCredentials: true,
           }

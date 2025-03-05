@@ -23,7 +23,7 @@ function Income() {
     setLoading(true);
     try {
       const res = await axios.get(
-        "https://expense-tracker-kwhq.onrender.com/income/getallincome",
+        "http://localhost:3000/api/income/getallincome",
         {
           withCredentials: true,
         }
@@ -60,7 +60,7 @@ function Income() {
     }
     try {
       const res = await axios.post(
-        "https://expense-tracker-kwhq.onrender.com/income/addincome",
+        "http://localhost:3000/api/income/addincome",
         income,
         {
           withCredentials: true,
@@ -80,7 +80,7 @@ function Income() {
   const handleDeleteIncome = async (id) => {
     try {
       const res = await axios.delete(
-        `https://expense-tracker-kwhq.onrender.com/income/delete/${id}`,
+        `http://localhost:3000/api/income/delete/${id}`,
         {
           withCredentials: true,
         }
@@ -99,7 +99,7 @@ function Income() {
   const handleDownloadIncomeDetails = async () => {
     try {
       const res = await axios.get(
-        "https://expense-tracker-kwhq.onrender.com/income/downloadexcel",
+        "http://localhost:3000/api/income/downloadexcel",
         {
           withCredentials: true,
           responseType: "blob",

@@ -15,7 +15,7 @@ function SideMenu({ activeMenu }) {
   const hqandleLogout = async () => {
     try {
       const res = await axios.get(
-        "https://expense-tracker-kwhq.onrender.com/auth/logout",
+        "http://localhost:3000/api/auth/logout",
         {},
         {
           withCredentials: true,

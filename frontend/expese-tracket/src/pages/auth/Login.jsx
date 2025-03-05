@@ -33,7 +33,7 @@ function Login() {
         password,
       };
       const res = await axios.post(
-        "https://expense-tracker-kwhq.onrender.com/auth/login",
+        "http://localhost:3000/api/auth/login",
         input,
         {
           withCredentials: true,
