@@ -12,7 +12,7 @@ import { LuHandCoins, LuWallet, LuWalletMinimal } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import FinaceOverview from "./FinaceOverview";
 import ExpenseTransactions from "./ExpenseTransactions";
-import Last30DaysExpenses from "./last30DaysExpenses";
+import Last30DaysExpenses from "./Last30DaysExpenses";
 import RecentIncomesWithChart from "../../components/charts/RecentIncomesWithChart";
 import RecentIncomes from "./RecentIncomes";
 
