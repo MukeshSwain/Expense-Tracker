@@ -23,7 +23,7 @@ function Income() {
     setLoading(true);
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/income/getallincome",
+        "https://expense-tracker-kwhq.onrender.com/income/getallincome",
         {
           withCredentials: true,
         }
@@ -42,26 +42,25 @@ function Income() {
   useEffect(() => {
     fetchIncomeDetails();
   }, []);
-  
+
   //Handle add income
-  const handleAddIncome = async (e,income) => {
+  const handleAddIncome = async (e, income) => {
     e.preventDefault();
-   
-     if (!income.source.trim())
-     {
-       toast.error("Source is required");
-       return;
-     }
-     if (!income.amount || isNaN(income.amount) || Number(income.amount) < 0) {
-       toast.error("Invalid amount");
-       return;
-     }
-     if (!income.date) {
-       toast.error("Date is required");
-     }
+
+    if (!income.source.trim()) {
+      toast.error("Source is required");
+      return;
+    }
+    if (!income.amount || isNaN(income.amount) || Number(income.amount) < 0) {
+      toast.error("Invalid amount");
+      return;
+    }
+    if (!income.date) {
+      toast.error("Date is required");
+    }
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/income/addincome",
+        "https://expense-tracker-kwhq.onrender.com/income/addincome",
         income,
         {
           withCredentials: true,
@@ -75,15 +74,13 @@ function Income() {
     } catch (error) {
       toast.error(error.message);
     }
-    
   };
-   
-    
+
   //Handle Delete Income
   const handleDeleteIncome = async (id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/api/income/delete/${id}`,
+        `https://expense-tracker-kwhq.onrender.com/income/delete/${id}`,
         {
           withCredentials: true,
         }
@@ -102,7 +99,7 @@ function Income() {
   const handleDownloadIncomeDetails = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/income/downloadexcel",
+        "https://expense-tracker-kwhq.onrender.com/income/downloadexcel",
         {
           withCredentials: true,
           responseType: "blob",
@@ -121,8 +118,8 @@ function Income() {
       }
     } catch (error) {
       toast.error(error.message);
-    };
-  }
+    }
+  };
   return (
     <DashboardLayout activeMenu={"Income"}>
       <div className="my-5 mx-auto">
@@ -153,7 +150,7 @@ function Income() {
         >
           <DeleteAlert
             content="Are you sure you want to delete this income detail?"
-            onDelete={()=>handleDeleteIncome(openDeleteAlert.data)}
+            onDelete={() => handleDeleteIncome(openDeleteAlert.data)}
           />
         </Modal>
       </div>

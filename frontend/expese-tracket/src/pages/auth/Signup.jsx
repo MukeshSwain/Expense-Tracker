@@ -29,45 +29,45 @@ function Signup() {
         setError("Please enter a valid email");
         return;
       }
-      if(!profilePic){
+      if (!profilePic) {
         setError("Please select a profile picture");
         return;
       }
-      if(!fullName){
+      if (!fullName) {
         setError("Please enter your full name");
         return;
       }
-      if(!password){
+      if (!password) {
         setError("Please enter a password");
         return;
       }
       const formData = new FormData();
-      if(profilePic){
+      if (profilePic) {
         formData.append("profilePic", profilePic);
       }
       formData.append("fullName", fullName);
       formData.append("email", email);
       formData.append("password", password);
-      const res = await axios.post("http://localhost:3000/api/auth/register", formData);
+      const res = await axios.post(
+        "https://expense-tracker-kwhq.onrender.com/auth/register",
+        formData
+      );
 
       if (res.data.success) {
         toast.success(res.data.message);
         navigate("/login");
         setError("");
       }
-      
     } catch (error) {
       setError(error.message);
-      
-      
-    }finally{
+    } finally {
       setProfilePic(null);
       setFullName("");
       setEmail("");
       setPassword("");
       setLoading(false);
     }
-  }
+  };
   return (
     <AuthLayout>
       <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center gap-2">
@@ -75,7 +75,10 @@ function Signup() {
         <p className="text-xs text-slate-700 mt-[5px] mb-6">
           Please enter required details to create your account
         </p>
-        <form onSubmit={handleSignup} className="flex flex-col gap-2 w-[90%] items-center justify-center">
+        <form
+          onSubmit={handleSignup}
+          className="flex flex-col gap-2 w-[90%] items-center justify-center"
+        >
           <div>
             <label htmlFor="profilePic" className="">
               {profilePic ? (
@@ -166,16 +169,18 @@ function Signup() {
             </div>
             <p className="text-xs text-red-500">{error && `${error}*`}</p>
           </div>
-          <button type="submit" className="bg-purple-500 hover:bg-purple-600 text-sm cursor-pointer text-center text-white py-2 rounded-md w-full mx-auto mt-2">
-          
-             {loading ? (
-                          <span className="flex items-center justify-center gap-1">
-                            <FaCircleNotch className="animate-spin" size={20} />
-                            please wait...
-                          </span>
-                        ) : (
-                          "SIGN UP"
-                        )}
+          <button
+            type="submit"
+            className="bg-purple-500 hover:bg-purple-600 text-sm cursor-pointer text-center text-white py-2 rounded-md w-full mx-auto mt-2"
+          >
+            {loading ? (
+              <span className="flex items-center justify-center gap-1">
+                <FaCircleNotch className="animate-spin" size={20} />
+                please wait...
+              </span>
+            ) : (
+              "SIGN UP"
+            )}
           </button>
         </form>
         <p>

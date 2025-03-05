@@ -21,7 +21,7 @@ function Expense() {
     setLoading(true);
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/expense/getallexpense",
+        "https://expense-tracker-kwhq.onrender.com/expense/getallexpense",
         {
           withCredentials: true,
         }
@@ -61,7 +61,7 @@ function Expense() {
     }
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/expense/addexpense",
+        "https://expense-tracker-kwhq.onrender.com/expense/addexpense",
         expense,
         {
           withCredentials: true,
@@ -82,7 +82,7 @@ function Expense() {
   const handleDownloadExpenseDetails = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/expense/downloadexcel",
+        "https://expense-tracker-kwhq.onrender.com/expense/downloadexcel",
         {
           withCredentials: true,
           responseType: "blob",
@@ -107,7 +107,7 @@ function Expense() {
   const handleDeleteExpense = async (id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/api/expense/delete/${id}`,
+        `https://expense-tracker-kwhq.onrender.com/expense/delete/${id}`,
         {
           withCredentials: true,
         }
