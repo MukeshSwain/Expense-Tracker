@@ -20,7 +20,9 @@ app.use(cors({
     origin: "http://localhost:5173",
     credentials: true
 }));
-
+app.get("/",(req,res)=>{
+    res.sen("Hello World");
+})
 app.use("/api/auth", authRoute);
 app.use("/api/income", incomeRoute);
 app.use("/api/expense", expenseRoute);
