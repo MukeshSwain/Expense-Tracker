@@ -15,7 +15,7 @@ export const uploadImage = async (file) => {
             resource_type: 'auto',
         })
     } catch (error) {
-        console.log(error.message);
+        console.log(error);
         
     }
  }
